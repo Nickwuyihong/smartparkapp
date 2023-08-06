@@ -1,5 +1,5 @@
 <template>
-	
+
 </template>
 <script>
 	export default {
@@ -15,6 +15,10 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	/*每个页面公共css */
+	.uni-swiper-wrapper {
+		width: 100%;
+		height: 608upx !important;
+	}
 </style>

@@ -13,7 +13,7 @@
 			<span class="name">{{name}}</span>
 			<span class="addr">{{address}}</span>
 			<span class="time">{{time}}</span>
-			<view class="enter" :style="getEnterStyle()">{{enter === 2 ? '已报名' : '报名'}}</view>
+			<view class="enter" :style="getEnterStyle()" @click="setEnter">{{isEnter === 2 ? '已报名' : '报名'}}</view>
 		</view>
 	</view>
 </template>
@@ -35,15 +35,25 @@
 		name:"activityItem",
 		data() {
 			return {
-				
+				// 0： 不可报名， 1：可报名， 2：已报名
+				isEnter: 0,
 			};
+		},
+		mounted() {
+			this.isEnter = this.enter
 		},
 		methods: {
 			// 获取报名样式
 			getEnterStyle() {
-				if (this.enter === 0) return {color: 'rgba(154, 154, 154, 1)', backgroundColor: 'rgba(206, 206, 206, 0.15)'}
-				if (this.enter === 1) return {color: 'rgba(15, 64, 245, 1)', backgroundColor: 'rgba(15, 64, 245, 0.15)'}
+				if (this.isEnter === 0) return {color: 'rgba(154, 154, 154, 1)', backgroundColor: 'rgba(206, 206, 206, 0.15)'}
+				if (this.isEnter === 1) return {color: 'rgba(15, 64, 245, 1)', backgroundColor: 'rgba(15, 64, 245, 0.15)'}
 				return {color: '#23C343', backgroundColor: '#E8FFE9'}
+			},
+			
+			// 报名
+			setEnter() {
+				if (this.isEnter === 0) return
+				this.isEnter = this.isEnter === 1 ? 2 : 1
 			}
 		},
 	}

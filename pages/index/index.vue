@@ -1,23 +1,25 @@
 <template>
 	<view class="content">
 		<!-- 顶部banner -->
-		<view class="topbar">
-			<span>M2V Cloud</span>
-			<view class="scan">
-				<image class="scan-img" src="../../static/scan.svg"></image>
+		<view class="top">
+			<view class="topbar">
+				<span>M2V Cloud</span>
+				<view class="scan">
+					<image class="scan-img" src="../../static/scan.svg"></image>
+				</view>
 			</view>
+			<view class="swiper-contents">
+				<span class="title">中创孵化器</span>
+				<span class="desc">由中创孵化器资深科技团队为您提供专业
+					孵化方案</span>
+			</view>
+			<swiper class="swiper" circular :indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.7)"
+				indicator-active-color="#fff" :autoplay="true" :interval="2000" :duration="500">
+				<swiper-item class="swiper-items" v-for="item in swipers">
+					<image class="swiper-items-img" :src="item"></image>
+				</swiper-item>
+			</swiper>
 		</view>
-		<view class="swiper-contents">
-			<span class="title">中创孵化器</span>
-			<span class="desc">由中创孵化器资深科技团队为您提供专业
-				孵化方案</span>
-		</view>
-		<swiper class="swiper" circular :indicator-dots="true" indicator-color="rgba(255, 255, 255, 0.7)"
-			indicator-active-color="#fff" :autoplay="true" :interval="2000" :duration="500">
-			<swiper-item class="swiper-items" v-for="item in swipers">
-				<image class="swiper-items-img" :src="item"></image>
-			</swiper-item>
-		</swiper>
 
 		<!-- 中部菜单 -->
 		<view class="mid-bar">
@@ -193,80 +195,83 @@
 		font-size: 36rpx;
 		color: #8f8f94;
 	}
-
-	// 轮播图
-	.swiper {
-		width: 100%;
-		height: 608upx !important;
-
-		&-items {
+	
+	.top {
+		position: relative;
+		// 轮播图
+		.swiper {
 			width: 100%;
 			height: 608upx !important;
-
-			&-img {
+		
+			&-items {
 				width: 100%;
 				height: 608upx !important;
+		
+				&-img {
+					width: 100%;
+					height: 608upx !important;
+				}
 			}
 		}
-	}
-
-	// 顶部标题
-	.topbar {
-		width: 100%;
-		box-sizing: border-box;
-		position: fixed;
-		top: 0;
-		z-index: 99;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 18upx 28upx 18upx 36upx;
-
-		>span {
-			color: rgba(16, 16, 16, 1);
-			font-size: 46upx;
-			font-family: Times New Roman-bold;
-			font-weight: 600;
-		}
-
-		.scan {
+		
+		// 顶部标题
+		.topbar {
+			width: 100%;
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			z-index: 99;
 			display: flex;
-			padding: 12upx;
-			opacity: 0.77;
-			border-radius: 6upx;
-			background-color: rgba(255, 255, 255, 1);
-
-			&-img {
-				width: 48upx;
-				height: 48upx;
+			align-items: center;
+			justify-content: space-between;
+			padding: 18upx 28upx 18upx 36upx;
+		
+			>span {
+				color: rgba(16, 16, 16, 1);
+				font-size: 46upx;
+				font-family: Times New Roman-bold;
+				font-weight: 600;
+			}
+		
+			.scan {
+				display: flex;
+				padding: 12upx;
+				opacity: 0.77;
+				border-radius: 6upx;
+				background-color: rgba(255, 255, 255, 1);
+		
+				&-img {
+					width: 48upx;
+					height: 48upx;
+				}
 			}
 		}
-	}
-
-	// 描述
-	.swiper-contents {
-		position: fixed;
-		box-sizing: border-box;
-		top: 140upx;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		z-index: 99;
-		padding: 60upx 36upx;
-
-		.title {
-			color: rgba(255, 255, 255, 1);
-			font-size: 46upx;
-			font-family: SourceHanSansSC-bold;
-			font-weight: 600;
-		}
-
-		.desc {
-			width: 80%;
-			color: rgba(255, 255, 255, 1);
-			font-size: 32upx;
-			font-family: SourceHanSansSC-regular;
-			margin-top: 30upx;
+		
+		// 描述
+		.swiper-contents {
+			position: absolute;
+			box-sizing: border-box;
+			top: 140upx;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			z-index: 99;
+			padding: 60upx 36upx;
+		
+			.title {
+				color: rgba(255, 255, 255, 1);
+				font-size: 46upx;
+				font-family: SourceHanSansSC-bold;
+				font-weight: 600;
+			}
+		
+			.desc {
+				width: 80%;
+				color: rgba(255, 255, 255, 1);
+				font-size: 32upx;
+				font-family: SourceHanSansSC-regular;
+				margin-top: 30upx;
+			}
 		}
 	}
 
